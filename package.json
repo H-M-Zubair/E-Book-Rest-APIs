@@ -13,9 +13,11 @@
     "@eslint/js": "^9.11.1",
     "@types/dotenv": "^8.2.0",
     "@types/express": "^5.0.0",
+    "@types/mongoose": "^5.11.97",
     "@types/node": "^22.7.4",
     "eslint": "^9.11.1",
     "globals": "^15.10.0",
+    "mongoose": "^8.7.0",
     "nodemo": "^1.0.0",
     "nodemon": "^3.1.7",
     "ts-node": "^10.9.2",
@@ -24,6 +26,7 @@
   },
   "dependencies": {
     "dotenv": "^16.4.5",
-    "express": "^4.21.0"
+    "express": "^4.21.0",
+    "mongodb": "^6.9.0"
   }
 }
