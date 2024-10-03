@@ -1,8 +1,9 @@
 import express, { NextFunction, Request, Response } from "express";
 
 import globalErrorHandler from "./middleware/GlobalErrorHandler";
+import userRouter from "./user/userRouter";
 const app = express();
-
+app.use(express.json());
 // Routes
 
 // Http Methods: GET, POST, PUT, PATCH, DELETE
@@ -10,6 +11,8 @@ const app = express();
 app.get("/", (req: Request, res: Response, next: NextFunction) => {
     res.json({ message: "Hello World" });
 });
+
+app.use("/api/user", userRouter);
 
 //Glogbal Error Handler:
 app.use(globalErrorHandler);
