@@ -47,3 +47,33 @@ export const createUser = async (
         return next(createHttpError(500, "Error in creating user"));
     }
 };
+
+export const loginUser = async (
+    req: Request,
+    res: Response,
+    next: NextFunction
+) => {
+    const { email, password } = req.body;
+    if (!email || !password) {
+        return next(createHttpError(400, "All fields are required"));
+    }
+    try {
+        const user = await UserModel.findOne({ email });
+        if (!user) {
+            return next(createHttpError(400, "Invalid credentials"));
+        }
+
+        const isPasswordCorrect = await bcrypt.compare(password, user.password);
+
+        if (!isPasswordCorrect) {
+            return next(createHttpError(400, "Invalid credentials"));
+        }
+        const token = sign({ sub: user._id }, process.env.JWT_SECRET!, {
+            expiresIn: "7d",
+        });
+        res.json({ message: "user login", token });
+    } catch (error) {
+        console.log(error);
+        return next(createHttpError(500, "Error in logging in user"));
+    }
+};
