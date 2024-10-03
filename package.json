@@ -17,6 +17,7 @@
     "@types/http-errors": "^2.0.4",
     "@types/jsonwebtoken": "^9.0.7",
     "@types/mongoose": "^5.11.97",
+    "@types/multer": "^1.4.12",
     "@types/node": "^22.7.4",
     "eslint": "^9.11.1",
     "globals": "^15.10.0",
@@ -36,6 +37,7 @@
     "http-npm": "^0.0.0",
     "install": "^0.13.0",
     "jsonwebtoken": "^9.0.2",
-    "mongodb": "^6.9.0"
+    "mongodb": "^6.9.0",
+    "multer": "^1.4.5-lts.1"
   }
 }
