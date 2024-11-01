@@ -1,15 +1,15 @@
 import express from "express";
-import { createBook } from "./bookController";
+import { createBookWithCloudinary } from "./bookController";
 import { upload } from "../../lib/Multer";
 
-const userRouter = express.Router();
+const bookRouter = express.Router();
 
-userRouter.post(
+bookRouter.post(
     "/create-book",
     upload.fields([
         { name: "coverImage", maxCount: 1 },
         { name: "file", maxCount: 1 },
     ]),
-    createBook
+    createBookWithCloudinary
 );
-export default userRouter;
+export default bookRouter;

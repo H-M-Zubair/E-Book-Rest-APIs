@@ -21,7 +21,7 @@ const bookSchema = new mongoose.Schema<Book>(
         },
         file: {
             type: String,
-            required: true,
+            required: false,
         },
     },
     { timestamps: true }
